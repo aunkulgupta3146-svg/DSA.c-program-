@@ -1,0 +1,81 @@
+#question 1
+1. Create & Display Singly Linked List
+
+#include<stdio.h>
+#include<stdlib.h>
+
+struct Node {
+    int data;
+    struct Node *next;
+};
+
+int main() {
+    struct Node *head=NULL,*new,*temp;
+    int i;
+
+    for(i=1;i<=3;i++) {
+        new=malloc(sizeof(struct Node));
+        printf("Enter data: ");
+        scanf("%d",&new->data);
+        new->next=NULL;
+
+        if(head==NULL)
+            head=new;
+        else {
+            temp=head;
+            while(temp->next!=NULL)
+                temp=temp->next;
+            temp->next=new;
+        }
+    }
+
+    temp=head;
+    while(temp!=NULL) {
+        printf("%d -> ",temp->data);
+        temp=temp->next;
+    }
+    printf("NULL");
+
+    return 0;
+}
+
+
+#question 2
+2. Insert Node at Beginning
+new=malloc(sizeof(struct Node));
+
+printf("Enter data: ");
+scanf("%d",&new->data);
+
+new->next=head;
+head=new;
+
+#question 3
+3. Insert Node at End
+new=malloc(sizeof(struct Node));
+
+printf("Enter data: ");
+scanf("%d",&new->data);
+new->next=NULL;
+
+temp=head;
+
+while(temp->next!=NULL)
+    temp=temp->next;
+
+temp->next=new;
+
+#question 4
+4. Insert Node at Given Position
+new=malloc(sizeof(struct Node));
+
+printf("Enter data: ");
+scanf("%d",&new->data);
+
+temp=head;
+
+for(i=1;i<pos-1;i++)
+    temp=temp->next;
+
+new->next=temp->next;
+temp->next=new;
